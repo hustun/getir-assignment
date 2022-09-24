@@ -1,13 +1,13 @@
 type FilterProps = {
   name: string;
   filterList: Array<string>;
-}; /* use `interface` if exporting so that consumers can extend */
+};
 
 function Filter({ name, filterList }: FilterProps) {
   return (
     <div className="mb-6">
       <h2 className="font-semibold text-c-gray-500 mb-3">{name}</h2>
-      <div className="bg-white text-c-black-500 w-[286px] text-sm py-6 px-6">
+      <div className="bg-white text-c-black-600 w-[286px] text-sm py-6 px-6">
         <input
           className="border px-4 py-2 w-full mb-4"
           type="text"

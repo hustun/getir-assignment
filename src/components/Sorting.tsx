@@ -8,7 +8,7 @@ function Sorting() {
   return (
     <div className="mb-6">
       <h2 className="font-semibold text-c-gray-500 mb-3">Sorting</h2>
-      <div className="bg-white text-c-black-500 w-[286px] text-sm p-6">
+      <div className="bg-white text-c-black-600 w-[286px] text-sm p-6">
         {sortingCategories.map((el: string) => {
           return (
             <div className="flex mb-5">

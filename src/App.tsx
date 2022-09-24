@@ -1,5 +1,6 @@
 import Filter from './components/Filter';
 import Header from './components/Header';
+import Products from './components/Products';
 import Sorting from './components/Sorting';
 
 function App() {
@@ -25,7 +26,9 @@ function App() {
           <Filter name="Brands" filterList={brandFilterList} />
           <Filter name="Tags" filterList={tagFilterList} />
         </div>
-        <div className="w-2/4 bg-red-300 h-screen">Div1</div>
+        <div className="w-2/4 h-screen">
+          <Products />
+        </div>
         <div className="w-1/4 bg-red-400 h-screen">Div1</div>
       </div>
     </div>
