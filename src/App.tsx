@@ -18,9 +18,9 @@ function App() {
     'Some other tag',
   ];
   return (
-    <div className="bg-neutral-50 w-full">
+    <div className="bg-neutral-50 w-full text-sm">
       <Header></Header>
-      <div className="flex mx-[103px] mt-10">
+      <div className="flex px-[103px] mt-10 max-w-[1440px] mx-auto">
         <div className="w-1/4">
           <Sorting />
           <Filter name="Brands" filterList={brandFilterList} />

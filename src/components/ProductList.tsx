@@ -93,7 +93,7 @@ function ProductList() {
     },
   ];
   return (
-    <div className="bg-white grid grid-cols-4 gap-6 p-5">
+    <div className="bg-white grid grid-cols-4 gap-x-6 gap-y-5 p-5">
       {productList.map((product) => {
         return <ProductCard name={product.name} price={product.price} />;
       })}
