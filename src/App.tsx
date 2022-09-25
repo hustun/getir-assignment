@@ -1,3 +1,4 @@
+import Cart from './components/Cart';
 import Filter from './components/Filter';
 import Header from './components/Header';
 import Products from './components/Products';
@@ -26,10 +27,12 @@ function App() {
           <Filter name="Brands" filterList={brandFilterList} />
           <Filter name="Tags" filterList={tagFilterList} />
         </div>
-        <div className="w-2/4 h-screen">
+        <div className="w-2/4">
           <Products />
         </div>
-        <div className="w-1/4 bg-red-400 h-screen">Div1</div>
+        <div className="w-1/4">
+          <Cart />
+        </div>
       </div>
     </div>
   );

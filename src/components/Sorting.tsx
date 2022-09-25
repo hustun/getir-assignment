@@ -9,9 +9,9 @@ function Sorting() {
     <div className="mb-6">
       <h2 className="font-semibold text-c-gray-500 mb-3">Sorting</h2>
       <div className="w-[286px] bg-white text-c-black-600 text-sm rounded-sm p-6">
-        {sortingCategories.map((el: string) => {
+        {sortingCategories.map((el: string, i: number) => {
           return (
-            <div className="flex mb-5">
+            <div key={i} className="flex mb-5">
               <div className="rounded-full border-2 border-[#DFDEE2] hover:border-[#c9c8cc] w-5 h-5 mr-3"></div>
               <p>{el}</p>
             </div>

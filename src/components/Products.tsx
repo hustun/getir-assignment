@@ -7,9 +7,12 @@ function Products() {
     <div className="mr-4 max-w-[608px] w-full">
       <h1 className="mb-4 text-xl text-c-black-500">Products</h1>
       <div className="flex mb-4">
-        {productTypes.map((el: string) => {
+        {productTypes.map((el: string, i: number) => {
           return (
-            <div className="py-[6px] px-4 mr-4 rounded-sm bg-[#F2F0FD] text-primary font-semibold hover:bg-primary hover:text-[#F2F0FD] cursor-pointer transition-colors">
+            <div
+              key={i}
+              className="py-[6px] px-4 mr-4 rounded-sm bg-[#F2F0FD] text-primary font-semibold hover:bg-primary hover:text-[#F2F0FD] cursor-pointer transition-colors"
+            >
               {el}
             </div>
           );

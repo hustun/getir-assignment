@@ -16,9 +16,9 @@ function Filter({ name, filterList }: FilterProps) {
           placeholder={'Search'}
         />
         <div className="overflow-y-scroll h-32">
-          {filterList.map((el: string) => {
+          {filterList.map((el: string, i: number) => {
             return (
-              <div className="flex mb-5">
+              <div key={i} className="flex mb-5">
                 <div className="rounded-sm w-5 h-5 mr-3 shadow-filter-item"></div>
                 <p>{el}</p>
               </div>

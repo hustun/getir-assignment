@@ -10,10 +10,10 @@ function ProductCard({ name, price }: ProductProps) {
         <img src="/product92.png" alt="" />
       </div>
 
-      <p className="font-bold text-primary mt-2">
+      <span className="font-bold text-primary mt-2">
         <span className="font-['Helvetica'] font-medium">₺ </span>
         {price}
-      </p>
+      </span>
       <h2 className="font-semibold">{name}</h2>
       <button className="w-full bg-primary hover:opacity-80 text-white font-bold py-[1px] px-4 rounded mt-auto text-xs leading-5">
         Add
