@@ -1,26 +1,30 @@
+import { useAppSelector } from '../app/hooks';
+
 function Cart() {
-  const cardProducts: Array<{ name: string; price: number; added: number }> = [
-    { name: 'Example Product', price: 14.99, added: 1231 },
-    { name: 'Example Product 2', price: 9.99, added: 1234 },
-  ];
+  const cart = useAppSelector((state) => state.cart.cart);
+  const totalPrice = useAppSelector((state) => state.cart.totalPrice);
+
   return (
     <div className="border-8 border-primary p-4 rounded-sm">
       <ul>
-        {cardProducts.map((product) => {
+        {cart.map((cartItem) => {
           return (
-            <li key={product.added} className="flex border-b py-4">
+            <li key={cartItem.product.added} className="flex border-b py-4">
               <div className="flex flex-col">
-                <h2>{product.name}</h2>
+                <h2>{cartItem.product.name}</h2>
                 <span className="text-primary font-semibold">
-                  ₺{product.price}
+                  ₺{cartItem.product.price}
                 </span>
+              </div>
+              <div className="ml-auto bg-primary text-white font-bold text-[15px] leading-5 w-8 h-8 flex items-center justify-center">
+                {cartItem.count}
               </div>
             </li>
           );
         })}
       </ul>
       <div className="w-fit border-primary border-2 font-semibold text-primary px-6 py-[17px] ml-auto mt-4 rounded-sm">
-        ₺39,97
+        ₺{totalPrice.toFixed(2)}
       </div>
     </div>
   );

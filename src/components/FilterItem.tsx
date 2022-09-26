@@ -3,23 +3,42 @@ import { useAppDispatch } from '../app/hooks';
 import {
   addBrandFilter,
   removeBrandFilter,
+  addTagFilter,
+  removeTagFilter,
 } from '../features/product/productSlice';
 
 type FilterItemProps = {
   name: string;
   freq: number | undefined;
+  type: string;
 };
 
-function FilterItem({ name, freq }: FilterItemProps) {
+function FilterItem({ name, freq, type }: FilterItemProps) {
   const [checked, setChecked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
   const handleChecked = () => {
-    if (checked) {
-      dispatch(removeBrandFilter(name));
-    } else {
-      dispatch(addBrandFilter(name));
+    switch (type) {
+      case 'Brands':
+        if (checked) {
+          dispatch(removeBrandFilter(name));
+        } else {
+          dispatch(addBrandFilter(name));
+        }
+        break;
+
+      case 'Tags':
+        if (checked) {
+          dispatch(removeTagFilter(name));
+        } else {
+          dispatch(addTagFilter(name));
+        }
+        break;
+
+      default:
+        break;
     }
+
     setChecked((prevState) => !prevState);
   };
   return (

@@ -23,13 +23,7 @@ function ProductList() {
   return (
     <div className="bg-white grid grid-cols-4 gap-x-6 gap-y-5 p-5">
       {filteredProductList.slice().map((product) => {
-        return (
-          <ProductCard
-            key={product.added}
-            name={product.name}
-            price={product.price}
-          />
-        );
+        return <ProductCard key={product.added} product={product} />;
       })}
     </div>
   );

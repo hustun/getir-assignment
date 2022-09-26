@@ -60,7 +60,9 @@ function Filter({ name }: FilterProps) {
         />
         <div className="overflow-y-scroll h-32">
           {Array.from(data.keys()).map((el: string, i: number) => {
-            return <FilterItem key={el} name={el} freq={data.get(el)} />;
+            return (
+              <FilterItem key={el} name={el} type={name} freq={data.get(el)} />
+            );
           })}
         </div>
       </div>
