@@ -13,7 +13,7 @@ function Sorting() {
           return (
             <div key={i} className="flex mb-5">
               <div className="rounded-full border-2 border-[#DFDEE2] hover:border-[#c9c8cc] w-5 h-5 mr-3"></div>
-              <p>{el}</p>
+              <span>{el} </span>
             </div>
           );
         })}
