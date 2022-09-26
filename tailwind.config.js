@@ -14,6 +14,9 @@ module.exports = {
       boxShadow: {
         'filter-item': '0px 1px 7px rgba(93, 56, 192, 0.4)',
       },
+      fontFamily: {
+        'turkish-lira': ['Helvetica'],
+      },
     },
   },
   plugins: [],

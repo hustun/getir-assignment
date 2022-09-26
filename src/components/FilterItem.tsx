@@ -44,7 +44,7 @@ function FilterItem({ name, freq, type }: FilterItemProps) {
   return (
     <div className="flex mb-5">
       <input
-        className="rounded-sm w-5 h-5 mr-3 shadow-filter-item border-none"
+        className="rounded-sm w-5 h-5 mr-3 shadow-filter-item border-none cursor-pointer"
         type="checkbox"
         checked={checked}
         onChange={handleChecked}

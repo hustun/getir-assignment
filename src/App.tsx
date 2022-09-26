@@ -14,10 +14,10 @@ function App() {
           <Filter name="Brands" />
           <Filter name="Tags" />
         </div>
-        <div className="w-2/4">
+        <div className="w-2/4 max-w-[608px] mr-4">
           <Products />
         </div>
-        <div className="w-1/4">
+        <div className="w-1/4 max-w-[296px]">
           <Cart />
         </div>
       </div>
