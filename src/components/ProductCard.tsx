@@ -20,7 +20,7 @@ function ProductCard({ product, isLoading }: ProductProps) {
         <div className="flex flex-col h-[225px]">
           <div className="p-4 border-[1.17666px] border-[#F3F0FE] rounded-xl">
             <img
-              className="max-w-none h-[92px]"
+              className="max-w-none h-[92px] mx-auto"
               width={92}
               height={92}
               src={product.itemType === 'shirt' ? '/shirt.png' : '/mug.png'}

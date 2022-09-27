@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAppDispatch } from '../app/hooks';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 import {
   addBrandFilter,
   removeBrandFilter,
@@ -16,6 +16,8 @@ type FilterItemProps = {
 function FilterItem({ name, freq, type }: FilterItemProps) {
   const [checked, setChecked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
+  const tagFilters = useAppSelector((state) => state.product.tagFilters);
+  const brandFilters = useAppSelector((state) => state.product.brandFilters);
 
   const handleChecked = () => {
     switch (type) {
@@ -46,7 +48,11 @@ function FilterItem({ name, freq, type }: FilterItemProps) {
       <input
         className="rounded-sm w-5 h-5 mr-3 shadow-filter-item border-none cursor-pointer"
         type="checkbox"
-        checked={checked}
+        checked={
+          type === 'Brands'
+            ? brandFilters.includes(name)
+            : tagFilters.includes(name)
+        }
         onChange={handleChecked}
       ></input>
       <span>
