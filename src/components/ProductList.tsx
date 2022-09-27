@@ -1,6 +1,6 @@
 import Product from '../types/Product';
 import ProductCard from './ProductCard';
-import { useAppSelector, useAppDispatch } from '../app/hooks';
+import { useAppDispatch } from '../app/hooks';
 import { initialize, setSortingType } from '../features/product/productSlice';
 import { useEffect, useState } from 'react';
 import http from '../common/http';
@@ -13,9 +13,6 @@ type ProductListProps = {
 
 function ProductList({ currentItems }: ProductListProps) {
   const dispatch = useAppDispatch();
-  const filteredProductList = useAppSelector(
-    (state) => state.product.filteredProducts
-  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +26,7 @@ function ProductList({ currentItems }: ProductListProps) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [dispatch]);
 
   const range = Array.from(Array(16).keys());
 

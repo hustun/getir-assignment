@@ -35,7 +35,7 @@ export const cartSlice = createSlice({
       } else {
         state.cart.push({ product: action.payload, count: 1 });
       }
-      state.totalPrice += action.payload.price;
+      state.totalPrice = +(state.totalPrice + action.payload.price).toFixed(2);
     },
     // handles decreasing the count of the product(and removing if needed), also handles price decrease
     removeProduct: (state, action: PayloadAction<Product>) => {
@@ -50,7 +50,9 @@ export const cartSlice = createSlice({
           state.cart = state.cart.filter((cartItem) => cartItem !== item);
         }
 
-        state.totalPrice -= action.payload.price;
+        state.totalPrice = +(state.totalPrice - action.payload.price).toFixed(
+          2
+        );
       }
     },
   },

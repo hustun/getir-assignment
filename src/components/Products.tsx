@@ -1,5 +1,4 @@
 import Pagination from './Pagination';
-import ProductList from './ProductList';
 
 function Products() {
   const productTypes: Array<string> = ['mug', 'shirt'];
@@ -20,7 +19,6 @@ function Products() {
         })}
       </div>
       <Pagination itemsPerPage={16}></Pagination>
-      {/* <ProductList /> */}
     </div>
   );
 }

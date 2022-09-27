@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import SortingType from '../common/SortingType';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { setSortingType } from '../features/product/productSlice';

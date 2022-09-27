@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import Product from '../../types/Product';
 import SortingType from '../../common/SortingType';
-import { stat } from 'fs';
 
 export interface ProductState {
   products: Array<Product>;
