@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import Product from '../../types/Product';
 import SortingType from '../../common/SortingType';
+import { stat } from 'fs';
 
 export interface ProductState {
   products: Array<Product>;
@@ -34,24 +35,28 @@ export const productSlice = createSlice({
     addProduct: (state, action: PayloadAction<Product>) => {
       state.products.push(action.payload);
     },
-    // Add and remove filters, call filtering function after every change
+    // Add and remove filters, call filtering function after every change and sort the results
     addBrandFilter: (state, action: PayloadAction<string>) => {
       state.brandFilters.push(action.payload);
       productSlice.caseReducers.filter(state);
+      productSlice.caseReducers.sort(state);
     },
     addTagFilter: (state, action: PayloadAction<string>) => {
       state.tagFilters.push(action.payload);
       productSlice.caseReducers.filter(state);
+      productSlice.caseReducers.sort(state);
     },
     removeBrandFilter: (state, action: PayloadAction<string>) => {
       state.brandFilters = state.brandFilters.filter(
         (el) => el !== action.payload
       );
       productSlice.caseReducers.filter(state);
+      productSlice.caseReducers.sort(state);
     },
     removeTagFilter: (state, action: PayloadAction<string>) => {
       state.tagFilters = state.tagFilters.filter((el) => el !== action.payload);
       productSlice.caseReducers.filter(state);
+      productSlice.caseReducers.sort(state);
     },
     // Reapplies the filtering function after every change to the filters
     filter: (state) => {
@@ -68,8 +73,12 @@ export const productSlice = createSlice({
         });
     },
     // sorting functions
-    sort: (state, action: PayloadAction<SortingType>) => {
-      switch (action.payload) {
+    setSortingType: (state, action: PayloadAction<SortingType>) => {
+      state.sortingType = action.payload;
+      productSlice.caseReducers.sort(state);
+    },
+    sort: (state) => {
+      switch (state.sortingType) {
         case SortingType.P_ASC:
           state.filteredProducts.sort((a, b) => a.price - b.price);
           break;
@@ -85,8 +94,26 @@ export const productSlice = createSlice({
         default:
           break;
       }
-      state.sortingType = action.payload;
     },
+    // sort: (state, action: PayloadAction<SortingType>) => {
+    //   switch (action.payload) {
+    //     case SortingType.P_ASC:
+    //       state.filteredProducts.sort((a, b) => a.price - b.price);
+    //       break;
+    //     case SortingType.P_DESC:
+    //       state.filteredProducts.sort((a, b) => b.price - a.price);
+    //       break;
+    //     case SortingType.D_ASC:
+    //       state.filteredProducts.sort((a, b) => a.added - b.added);
+    //       break;
+    //     case SortingType.D_DESC:
+    //       state.filteredProducts.sort((a, b) => b.added - a.added);
+    //       break;
+    //     default:
+    //       break;
+    //   }
+    //   state.sortingType = action.payload;
+    // },
   },
 });
 
@@ -98,7 +125,7 @@ export const {
   addTagFilter,
   removeBrandFilter,
   removeTagFilter,
-  sort,
+  setSortingType,
 } = productSlice.actions;
 
 export default productSlice.reducer;

@@ -17,6 +17,9 @@ module.exports = {
       fontFamily: {
         'turkish-lira': ['Helvetica'],
       },
+      spacing: {
+        34: '8.5rem',
+      },
     },
   },
   plugins: [],

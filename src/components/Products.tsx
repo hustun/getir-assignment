@@ -1,3 +1,4 @@
+import Pagination from './Pagination';
 import ProductList from './ProductList';
 
 function Products() {
@@ -18,7 +19,8 @@ function Products() {
           );
         })}
       </div>
-      <ProductList />
+      <Pagination itemsPerPage={16}></Pagination>
+      {/* <ProductList /> */}
     </div>
   );
 }

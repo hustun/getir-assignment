@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+  user-select: none;
+}
+
+.pagination .page-item {
+  padding: 0.75rem;
+}
+
+.pagination .page-item:not(.active):not(.disabled):hover {
+  background-color: #1ea4ce;
+  color: #fff;
+  opacity: 0.7;
+}
+
+.pagination .active {
+  background-color: #1ea4ce;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.pagination .disabled .page-link {
+  opacity: 0.75;
+  cursor: not-allowed;
+}

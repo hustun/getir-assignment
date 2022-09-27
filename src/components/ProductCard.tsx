@@ -1,7 +1,6 @@
 import { useAppDispatch } from '../app/hooks';
 import { addProduct } from '../features/cart/cartSlice';
 import Product from '../types/Product';
-import ProductCardPlaceholder from './ProductCardPlaceholder';
 
 type ProductProps = {
   product: Product;
@@ -20,7 +19,7 @@ function ProductCard({ product, isLoading }: ProductProps) {
       {!isLoading && (
         <div className="flex flex-col h-[225px]">
           <div className="p-4 border-[1.17666px] border-[#F3F0FE] rounded-xl">
-            <img src="/product92.png" alt="" />
+            <img src="/product92.png" alt="Product" />
           </div>
 
           <span className="font-bold text-primary mt-2">

@@ -22,7 +22,9 @@ export const cartSlice = createSlice({
     },
     clear: (state) => {
       state.cart = [];
+      state.totalPrice = 0;
     },
+    // handles adding and increasing the count of a product, also handles price increase
     addProduct: (state, action: PayloadAction<Product>) => {
       const item = state.cart.find(
         (el) => el.product.slug === action.payload.slug
@@ -35,9 +37,26 @@ export const cartSlice = createSlice({
       }
       state.totalPrice += action.payload.price;
     },
+    // handles decreasing the count of the product(and removing if needed), also handles price decrease
+    removeProduct: (state, action: PayloadAction<Product>) => {
+      const item = state.cart.find(
+        (el) => el.product.slug === action.payload.slug
+      );
+
+      if (item) {
+        item.count--;
+
+        if (item.count === 0) {
+          state.cart = state.cart.filter((cartItem) => cartItem !== item);
+        }
+
+        state.totalPrice -= action.payload.price;
+      }
+    },
   },
 });
 
-export const { initialize, clear, addProduct } = cartSlice.actions;
+export const { initialize, clear, addProduct, removeProduct } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

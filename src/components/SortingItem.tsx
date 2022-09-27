@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SortingType from '../common/SortingType';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { sort } from '../features/product/productSlice';
+import { setSortingType } from '../features/product/productSlice';
 
 export type SortingItemProps = {
   label: string;
@@ -9,13 +9,11 @@ export type SortingItemProps = {
 };
 
 function SortingItem({ label, type }: SortingItemProps) {
-  const [selected, setSelected] = useState(false);
   const sortingType = useAppSelector((state) => state.product.sortingType);
   const dispatch = useAppDispatch();
 
   const handleSelected = () => {
-    dispatch(sort(type));
-    setSelected((prevState) => !prevState);
+    dispatch(setSortingType(type));
     console.log(type);
   };
 
@@ -29,7 +27,12 @@ function SortingItem({ label, type }: SortingItemProps) {
         }`}
         onClick={handleSelected}
       >
-        {type === sortingType && <img src="/checkmark.svg" alt="" />}
+        {type === sortingType && (
+          <img
+            src="/checkmark.svg"
+            alt="Checkmark to show the selected sorting type"
+          />
+        )}
       </div>
       <span>{label} </span>
     </div>

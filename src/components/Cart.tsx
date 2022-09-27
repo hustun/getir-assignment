@@ -1,4 +1,5 @@
 import { useAppSelector } from '../app/hooks';
+import CartItem from './CartItem';
 
 function Cart() {
   const cart = useAppSelector((state) => state.cart.cart);
@@ -9,19 +10,7 @@ function Cart() {
       <ul>
         {cart.length === 0 && <div>Your cart is empty.</div>}
         {cart.map((cartItem) => {
-          return (
-            <li key={cartItem.product.added} className="flex border-b py-4">
-              <div className="flex flex-col">
-                <h2>{cartItem.product.name}</h2>
-                <span className="text-primary font-semibold">
-                  ₺{cartItem.product.price}
-                </span>
-              </div>
-              <div className="ml-auto bg-primary text-white font-bold text-[15px] leading-5 w-8 h-8 flex items-center justify-center">
-                {cartItem.count}
-              </div>
-            </li>
-          );
+          return <CartItem product={cartItem.product} count={cartItem.count} />;
         })}
       </ul>
       <div className="w-fit border-primary border-2 font-semibold text-primary px-6 py-[17px] ml-auto mt-4 rounded-sm">
