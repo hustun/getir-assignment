@@ -8,7 +8,7 @@ function Cart() {
   return (
     <div className="border-8 border-primary p-4 rounded-sm w-full">
       <ul>
-        {cart.length === 0 && <div>Your cart is empty.</div>}
+        {cart.length === 0 && <div>Your cart is empty!</div>}
         {cart.map((cartItem) => {
           return <CartItem product={cartItem.product} count={cartItem.count} />;
         })}
