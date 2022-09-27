@@ -19,7 +19,13 @@ function ProductCard({ product, isLoading }: ProductProps) {
       {!isLoading && (
         <div className="flex flex-col h-[225px]">
           <div className="p-4 border-[1.17666px] border-[#F3F0FE] rounded-xl">
-            <img src="/product92.png" alt="Product" />
+            <img
+              className="max-w-none h-[92px]"
+              width={92}
+              height={92}
+              src={product.itemType === 'shirt' ? '/shirt.png' : '/mug.png'}
+              alt="Product"
+            />
           </div>
 
           <span className="font-bold text-primary mt-2">
