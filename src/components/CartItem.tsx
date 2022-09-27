@@ -33,6 +33,8 @@ function CartItem({ product, count }: CartItemProps) {
             className="w-[10px]"
             src="./minus.svg"
             alt="Decrease item count"
+            width={10}
+            height={10}
           />
         </button>
 
@@ -47,6 +49,8 @@ function CartItem({ product, count }: CartItemProps) {
             className="w-[10px]"
             src="./plus.svg"
             alt="Increase item count"
+            width={10}
+            height={10}
           />
         </button>
       </div>

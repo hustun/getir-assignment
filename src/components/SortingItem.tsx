@@ -29,6 +29,8 @@ function SortingItem({ label, type }: SortingItemProps) {
           <img
             src="/checkmark.svg"
             alt="Checkmark to show the selected sorting type"
+            width={10}
+            height={7}
           />
         )}
       </div>
