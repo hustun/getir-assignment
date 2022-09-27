@@ -95,25 +95,6 @@ export const productSlice = createSlice({
           break;
       }
     },
-    // sort: (state, action: PayloadAction<SortingType>) => {
-    //   switch (action.payload) {
-    //     case SortingType.P_ASC:
-    //       state.filteredProducts.sort((a, b) => a.price - b.price);
-    //       break;
-    //     case SortingType.P_DESC:
-    //       state.filteredProducts.sort((a, b) => b.price - a.price);
-    //       break;
-    //     case SortingType.D_ASC:
-    //       state.filteredProducts.sort((a, b) => a.added - b.added);
-    //       break;
-    //     case SortingType.D_DESC:
-    //       state.filteredProducts.sort((a, b) => b.added - a.added);
-    //       break;
-    //     default:
-    //       break;
-    //   }
-    //   state.sortingType = action.payload;
-    // },
   },
 });
 

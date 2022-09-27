@@ -23,7 +23,6 @@ function Pagination({ itemsPerPage }: PaginationProps) {
   useEffect(() => {
     // Fetch items from another resources.
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(filteredProducts.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(filteredProducts.length / itemsPerPage));
   }, [filteredProducts, itemOffset, itemsPerPage]);
@@ -31,9 +30,6 @@ function Pagination({ itemsPerPage }: PaginationProps) {
   // Invoke when user click to request another page.
   const handlePageClick = (event: { selected: number }) => {
     const newOffset = (event.selected * itemsPerPage) % filteredProducts.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
     setItemOffset(newOffset);
   };
 

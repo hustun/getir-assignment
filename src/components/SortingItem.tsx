@@ -14,7 +14,6 @@ function SortingItem({ label, type }: SortingItemProps) {
 
   const handleSelected = () => {
     dispatch(setSortingType(type));
-    console.log(type);
   };
 
   return (
