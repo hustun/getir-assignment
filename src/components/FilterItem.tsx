@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import {
   addBrandFilter,
@@ -14,15 +13,20 @@ type FilterItemProps = {
 };
 
 function FilterItem({ name, freq, type }: FilterItemProps) {
-  const [checked, setChecked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const tagFilters = useAppSelector((state) => state.product.tagFilters);
   const brandFilters = useAppSelector((state) => state.product.brandFilters);
 
+  const checked = () => {
+    return type === 'Brands'
+      ? brandFilters.includes(name)
+      : tagFilters.includes(name);
+  };
+
   const handleChecked = () => {
     switch (type) {
       case 'Brands':
-        if (checked) {
+        if (checked()) {
           dispatch(removeBrandFilter(name));
         } else {
           dispatch(addBrandFilter(name));
@@ -30,7 +34,7 @@ function FilterItem({ name, freq, type }: FilterItemProps) {
         break;
 
       case 'Tags':
-        if (checked) {
+        if (checked()) {
           dispatch(removeTagFilter(name));
         } else {
           dispatch(addTagFilter(name));
@@ -40,19 +44,13 @@ function FilterItem({ name, freq, type }: FilterItemProps) {
       default:
         break;
     }
-
-    setChecked((prevState) => !prevState);
   };
   return (
     <div className="flex mb-5">
       <input
         className="rounded-sm w-5 h-5 mr-3 shadow-filter-item border-none cursor-pointer"
         type="checkbox"
-        checked={
-          type === 'Brands'
-            ? brandFilters.includes(name)
-            : tagFilters.includes(name)
-        }
+        checked={checked()}
         onChange={handleChecked}
       ></input>
       <span>

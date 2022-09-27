@@ -9,6 +9,7 @@ export interface ProductState {
   brandFilters: Array<string>;
   tagFilters: Array<string>;
   sortingType: SortingType;
+  typeFilter: string;
 }
 
 const initialState: ProductState = {
@@ -17,6 +18,7 @@ const initialState: ProductState = {
   brandFilters: [],
   tagFilters: [],
   sortingType: SortingType.P_ASC,
+  typeFilter: '',
 };
 
 export const productSlice = createSlice({
@@ -69,6 +71,11 @@ export const productSlice = createSlice({
           return state.tagFilters.length > 0
             ? el.tags.some((tag) => state.tagFilters.includes(tag))
             : true;
+        })
+        .filter((el) => {
+          return state.typeFilter !== ''
+            ? state.typeFilter === el.itemType
+            : true;
         });
     },
     // sorting functions
@@ -94,6 +101,11 @@ export const productSlice = createSlice({
           break;
       }
     },
+    setTagFilter: (state, action: PayloadAction<string>) => {
+      state.typeFilter = action.payload;
+      productSlice.caseReducers.filter(state);
+      productSlice.caseReducers.sort(state);
+    },
   },
 });
 
@@ -106,6 +118,7 @@ export const {
   removeBrandFilter,
   removeTagFilter,
   setSortingType,
+  setTagFilter,
 } = productSlice.actions;
 
 export default productSlice.reducer;
