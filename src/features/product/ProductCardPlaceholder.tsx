@@ -1,8 +1,9 @@
 function ProductCardPlaceholder() {
   return (
     <div className="flex flex-col h-[225px] animate-pulse">
-      <div className="p-4 border-[1.17666px] border-[#F3F0FE] rounded-xl mx-auto">
+      <div className="p-4 border-[1.17666px] border-[#F3F0FE] rounded-xl">
         <img
+          className="max-w-none h-[92px] mx-auto"
           src="/product92.png"
           alt="Placeholder Product"
           width={92}
