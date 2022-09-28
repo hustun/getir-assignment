@@ -12,7 +12,7 @@ function Header() {
         width={142}
         height={41}
       />
-      <div className="flex absolute right-0 mr-32 px-6 p-4 bg-header-dark-blue text-white h-full items-center font-semibold">
+      <div className="flex absolute right-0 mr-4 sm:mr-12 lg:mr-32 px-4 sm:px-6 p-4 bg-header-dark-blue text-white h-full items-center font-semibold">
         <span className="font-turkish-lira mr-1">₺</span>
         <span>{totalPrice.toFixed(2)}</span>
       </div>
