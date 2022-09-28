@@ -35,6 +35,7 @@ function ProductCard({ product, isLoading }: ProductProps) {
           <h2 className="font-semibold">{product.name}</h2>
           <button
             className="w-full bg-primary hover:opacity-80 text-white font-bold py-[1px] px-4 rounded mt-auto text-xs leading-5"
+            data-testid="testbutton"
             onClick={handleAddProduct}
           >
             Add

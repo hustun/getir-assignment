@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Filter from './filtering/Filter';
 import Pagination from './Pagination';
-import ProductTypeFilter from './ProductTypeFilter';
+import ProductTypeFilter from './filtering/ProductTypeFilter';
 import Sorting from './sorting/Sorting';
 
 function Products() {
