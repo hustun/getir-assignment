@@ -33,6 +33,22 @@ npm start
 
 ## Tools & Technologies
 
+### File Structure
+
+    
+    ├── ...
+    ├── src                     
+    │   ├── app                         # Redux related files(store and hooks)
+    │   ├── common                      # Common functions, enums 
+    │   ├── components                  # General components not related to any application logic 
+    │   |   └── ui                      # UI components that are used across the application
+    │   ├── features                    # Application logic is divided by features, each feature contains related components and slices
+    │   |   ├── cart                    # cart components and cart slice
+    │   |   ├── product                 # product components and product slice
+    │   |   |   ├── filtering           # filtering components
+    │   |   |   └── sorting             # sorting components
+    │   └── types                       # Type definitions
+    └── ...
 ## Deployment
 
 - [Frontend Application](https://demo.hasanustun.com/) is deployed using [Vercel](https://vercel.com/)
