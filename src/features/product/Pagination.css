@@ -56,3 +56,27 @@
     margin-left: 1.5rem;
   }
 }
+
+@media (max-width: 580px) {
+  .pagination .page-item.prev {
+    margin-right: 0.5rem;
+  }
+
+  .pagination .page-item.next {
+    margin-left: 0.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .pagination .page-item.prev {
+    margin-right: 0.25rem;
+  }
+
+  .pagination .page-item.next {
+    margin-left: 0.4rem;
+  }
+
+  .pagination .page-item {
+    padding: 0.4rem;
+  }
+}

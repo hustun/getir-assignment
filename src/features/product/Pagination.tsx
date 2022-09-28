@@ -4,6 +4,7 @@ import { useAppSelector } from '../../app/hooks';
 import Product from '../../types/Product';
 import ProductList from './ProductList';
 import './Pagination.css';
+import ArrowIcon from '../../components/icons/ArrowIcon';
 
 type PaginationProps = {
   itemsPerPage: number;
@@ -39,12 +40,20 @@ function Pagination({ itemsPerPage }: PaginationProps) {
       <ProductList currentItems={currentItems} />
       <ReactPaginate
         breakLabel="..."
-        nextLabel="Next >"
+        nextLabel={
+          <div className="flex">
+            Next <ArrowIcon className="ml-2 rotate-180" />
+          </div>
+        }
         onPageChange={handlePageClick}
         pageRangeDisplayed={1}
         marginPagesDisplayed={3}
         pageCount={pageCount}
-        previousLabel="< Prev"
+        previousLabel={
+          <div className="flex">
+            <ArrowIcon className="mr-2" /> Prev
+          </div>
+        }
         pageClassName="page-item"
         pageLinkClassName="page-link"
         previousClassName="page-item prev"
