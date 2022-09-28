@@ -12,7 +12,7 @@ function Sorting() {
   return (
     <div className="mb-6">
       <h2 className="font-semibold text-c-gray-500 mb-3">Sorting</h2>
-      <Container>
+      <Container className="p-6">
         {sortingCategories.map((el: SortingItemProps, i: number) => {
           return <SortingItem key={i} label={el.label} type={el.type} />;
         })}

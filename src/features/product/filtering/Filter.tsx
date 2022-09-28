@@ -61,32 +61,37 @@ function Filter({ name }: FilterProps) {
     <div className="mb-6">
       <h2 className="font-semibold text-c-gray-500 mb-3">{name}</h2>
       <Container>
-        <input
-          className="border-2 px-4 py-2 mb-4 w-full"
-          type="text"
-          name=""
-          id=""
-          placeholder={'Search'}
-          onChange={(e) => {
-            handleSearch(e);
-          }}
-          value={searchQuery}
-        />
-        <div className="overflow-y-scroll h-32">
-          {Array.from(data.keys())
-            .filter((el) => {
-              return el.toLowerCase().includes(searchQuery.toLowerCase());
-            })
-            .map((el: string, i: number) => {
-              return (
-                <FilterItem
-                  key={el}
-                  name={el}
-                  type={name}
-                  freq={data.get(el)}
-                />
-              );
-            })}
+        <div className="px-6 pt-6">
+          <input
+            className="border-2 px-4 py-2 w-full"
+            type="text"
+            name=""
+            id=""
+            placeholder={'Search'}
+            onChange={(e) => {
+              handleSearch(e);
+            }}
+            value={searchQuery}
+          />
+        </div>
+
+        <div className="pb-6 mt-4">
+          <div className="overflow-y-scroll h-32 pl-6 pt-2 mr-6">
+            {Array.from(data.keys())
+              .filter((el) => {
+                return el.toLowerCase().includes(searchQuery.toLowerCase());
+              })
+              .map((el: string, i: number) => {
+                return (
+                  <FilterItem
+                    key={el}
+                    name={el}
+                    type={name}
+                    freq={data.get(el)}
+                  />
+                );
+              })}
+          </div>
         </div>
       </Container>
     </div>

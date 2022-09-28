@@ -22,7 +22,10 @@ function CartItem({ product, count }: CartItemProps) {
     <li key={product.added} className="flex border-b py-4">
       <div className="flex flex-col">
         <h2>{product.name}</h2>
-        <span className="text-primary font-semibold">₺{product.price}</span>
+        <span className="text-primary font-semibold">
+          <span className="font-turkish-lira">₺</span>
+          {product.price}
+        </span>
       </div>
       <div className="flex ml-auto">
         <button
