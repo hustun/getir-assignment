@@ -31,6 +31,7 @@ function Pagination({ itemsPerPage }: PaginationProps) {
   const handlePageClick = (event: { selected: number }) => {
     const newOffset = (event.selected * itemsPerPage) % filteredProducts.length;
     setItemOffset(newOffset);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
