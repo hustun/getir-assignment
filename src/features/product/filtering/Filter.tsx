@@ -1,17 +1,20 @@
 import { useAppSelector } from '../../../app/hooks';
 import FilterItem from './FilterItem';
 import Container from '../../../components/ui/Container';
+import React, { useState } from 'react';
 
 type FilterProps = {
   name: string;
 };
 
 function Filter({ name }: FilterProps) {
+  const [searchQuery, setSearchQuery] = useState('');
   const productList = useAppSelector((state) => state.product.products);
 
   const getBrands = () => {
     const uniqueBrands = new Map<string, number>();
 
+    // count products for each manufacturer
     productList.forEach((item) => {
       const { manufacturer } = item;
       const keyValue = uniqueBrands.get(manufacturer);
@@ -26,6 +29,8 @@ function Filter({ name }: FilterProps) {
 
   const getTags = () => {
     const uniqueTags = new Map<string, number>();
+
+    // count products for each tag
     productList.map((item) =>
       item.tags.forEach((tag) => {
         const keyValue = uniqueTags.get(tag);
@@ -48,6 +53,10 @@ function Filter({ name }: FilterProps) {
 
   const data = getData();
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <div className="mb-6">
       <h2 className="font-semibold text-c-gray-500 mb-3">{name}</h2>
@@ -58,13 +67,26 @@ function Filter({ name }: FilterProps) {
           name=""
           id=""
           placeholder={'Search'}
+          onChange={(e) => {
+            handleSearch(e);
+          }}
+          value={searchQuery}
         />
         <div className="overflow-y-scroll h-32">
-          {Array.from(data.keys()).map((el: string, i: number) => {
-            return (
-              <FilterItem key={el} name={el} type={name} freq={data.get(el)} />
-            );
-          })}
+          {Array.from(data.keys())
+            .filter((el) => {
+              return el.toLowerCase().includes(searchQuery.toLowerCase());
+            })
+            .map((el: string, i: number) => {
+              return (
+                <FilterItem
+                  key={el}
+                  name={el}
+                  type={name}
+                  freq={data.get(el)}
+                />
+              );
+            })}
         </div>
       </Container>
     </div>
