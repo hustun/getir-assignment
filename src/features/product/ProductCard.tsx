@@ -1,6 +1,6 @@
-import { useAppDispatch } from '../app/hooks';
-import { addProduct } from '../features/cart/cartSlice';
-import Product from '../types/Product';
+import { useAppDispatch } from '../../app/hooks';
+import { addProduct } from '../cart/cartSlice';
+import Product from '../../types/Product';
 
 type ProductProps = {
   product: Product;

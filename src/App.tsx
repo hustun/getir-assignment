@@ -1,8 +1,8 @@
-import Cart from './components/Cart';
-import Filter from './components/Filter';
+import Cart from './features/cart/Cart';
+import Filter from './features/product/filtering/Filter';
 import Header from './components/Header';
-import Products from './components/Products';
-import Sorting from './components/Sorting';
+import Products from './features/product/Products';
+import Sorting from './features/product/sorting/Sorting';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Filter name="Brands" />
           <Filter name="Tags" />
         </div>
-        <div className="w-full lg:w-2/4 max-w-[608px] mr-4">
+        <div className="w-full lg:w-2/4 max-w-none def:max-w-[608px] mr-4">
           <Products />
         </div>
         <div className="hidden lg:block w-full lg:w-1/4 max-w-[296px]">

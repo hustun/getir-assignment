@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { clear } from '../features/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { clear } from './cartSlice';
 import CartItem from './CartItem';
 
 function Cart() {

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Filter from './Filter';
+import Filter from './filtering/Filter';
 import Pagination from './Pagination';
 import ProductTypeFilter from './ProductTypeFilter';
-import Sorting from './Sorting';
+import Sorting from './sorting/Sorting';
 
 function Products() {
   const [showMobileFilters, setShowMobileFilters] = useState(false);

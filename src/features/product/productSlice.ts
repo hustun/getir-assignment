@@ -101,7 +101,7 @@ export const productSlice = createSlice({
           break;
       }
     },
-    setTagFilter: (state, action: PayloadAction<string>) => {
+    setTypeFilter: (state, action: PayloadAction<string>) => {
       state.typeFilter = action.payload;
       productSlice.caseReducers.filter(state);
       productSlice.caseReducers.sort(state);
@@ -118,7 +118,7 @@ export const {
   removeBrandFilter,
   removeTagFilter,
   setSortingType,
-  setTagFilter,
+  setTypeFilter,
 } = productSlice.actions;
 
 export default productSlice.reducer;

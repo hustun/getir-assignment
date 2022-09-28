@@ -1,5 +1,5 @@
-import { useAppSelector } from '../app/hooks';
-import TypeFilterItem from './TypeFilterItem';
+import { useAppSelector } from '../../app/hooks';
+import TypeFilterItem from './filtering/TypeFilterItem';
 
 function ProductTypeFilter() {
   const productList = useAppSelector((state) => state.product.products);

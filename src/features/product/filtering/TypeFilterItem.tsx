@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { setTagFilter } from '../features/product/productSlice';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { setTypeFilter } from '../productSlice';
 
 type TypeFilterItemProps = {
   name: string;
@@ -15,9 +15,9 @@ function TypeFilterItem({ name }: TypeFilterItemProps) {
 
   const handleFilter = () => {
     if (selected()) {
-      dispatch(setTagFilter(''));
+      dispatch(setTypeFilter(''));
     } else {
-      dispatch(setTagFilter(name));
+      dispatch(setTypeFilter(name));
     }
   };
 

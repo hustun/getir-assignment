@@ -1,10 +1,10 @@
-import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import {
   addBrandFilter,
   removeBrandFilter,
   addTagFilter,
   removeTagFilter,
-} from '../features/product/productSlice';
+} from '../productSlice';
 
 type FilterItemProps = {
   name: string;
@@ -47,14 +47,16 @@ function FilterItem({ name, freq, type }: FilterItemProps) {
   };
   return (
     <div className="flex mb-[18px]">
-      <div className="relative mr-3 w-[22px] h-[22px]">
+      <div
+        className="relative mr-3 w-[22px] h-[22px] cursor-pointer"
+        onClick={handleChecked}
+      >
         <input
           className={`rounded-sm w-full h-full shadow-filter-item border-none cursor-pointer appearance-none ${
             checked() ? 'bg-primary' : ''
           }`}
           type="checkbox"
           checked={checked()}
-          onChange={handleChecked}
         ></input>
         {checked() && (
           <img

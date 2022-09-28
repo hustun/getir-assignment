@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { useAppSelector } from '../app/hooks';
-import Product from '../types/Product';
+import { useAppSelector } from '../../app/hooks';
+import Product from '../../types/Product';
 import ProductList from './ProductList';
 import './Pagination.css';
 

@@ -1,11 +1,11 @@
-import Product from '../types/Product';
+import Product from '../../types/Product';
 import ProductCard from './ProductCard';
-import { useAppDispatch } from '../app/hooks';
-import { initialize, setSortingType } from '../features/product/productSlice';
+import { useAppDispatch } from '../../app/hooks';
+import { initialize, setSortingType } from './productSlice';
 import { useEffect, useState } from 'react';
-import http from '../common/http';
 import ProductCardPlaceholder from './ProductCardPlaceholder';
-import SortingType from '../common/SortingType';
+import SortingType from '../../common/SortingType';
+import http from '../../common/http';
 
 type ProductListProps = {
   currentItems: Array<Product>;

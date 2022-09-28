@@ -1,6 +1,6 @@
-import SortingType from '../common/SortingType';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { setSortingType } from '../features/product/productSlice';
+import SortingType from '../../../common/SortingType';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { setSortingType } from '../productSlice';
 
 export type SortingItemProps = {
   label: string;

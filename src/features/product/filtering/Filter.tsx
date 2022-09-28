@@ -1,5 +1,6 @@
-import { useAppSelector } from '../app/hooks';
+import { useAppSelector } from '../../../app/hooks';
 import FilterItem from './FilterItem';
+import Container from '../../../components/ui/Container';
 
 type FilterProps = {
   name: string;
@@ -50,7 +51,7 @@ function Filter({ name }: FilterProps) {
   return (
     <div className="mb-6">
       <h2 className="font-semibold text-c-gray-500 mb-3">{name}</h2>
-      <div className="w-[286px] bg-white text-c-black-600 text-sm p-6 rounded-sm shadow-filter-container">
+      <Container>
         <input
           className="border-2 px-4 py-2 mb-4 w-full"
           type="text"
@@ -65,7 +66,7 @@ function Filter({ name }: FilterProps) {
             );
           })}
         </div>
-      </div>
+      </Container>
     </div>
   );
 }
