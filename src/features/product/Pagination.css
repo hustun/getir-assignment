@@ -6,6 +6,7 @@
   line-height: 16px;
   margin-top: 2rem;
   user-select: none;
+  color: var(--grayscale-500);
 }
 
 .pagination .page-item {
@@ -33,7 +34,6 @@
 }
 
 .pagination .disabled .page-link {
-  opacity: 0.75;
   cursor: not-allowed;
 }
 

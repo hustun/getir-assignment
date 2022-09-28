@@ -7,11 +7,13 @@
 @layer base {
   html {
     font-family: 'Open Sans';
+    background: #fafafa;
   }
 }
 
 :root {
   --theme-color: #1ea4ce;
+  --grayscale-500: #697488;
 }
 
 ::-webkit-scrollbar {

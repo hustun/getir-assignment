@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="bg-neutral-50 w-full text-sm pb-10">
       <Header></Header>
-      <div className="flex flex-col lg:flex-row px-2 md:px-8 xl:px-16 def:px-[103px] mt-10 max-w-[1440px] mx-auto justify-center">
+      <div className="flex flex-col lg:flex-row px-2 md:px-8 xl:px-16 def:px-[103px] mt-[145px] lg:mt-[117px] max-w-[1440px] mx-auto justify-center">
         <div className="hidden lg:block w-full lg:w-1/4">
           <Sorting />
           <Filter name="Brands" />

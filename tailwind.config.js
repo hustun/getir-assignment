@@ -6,7 +6,8 @@ module.exports = {
       colors: {
         primary: 'var(--theme-color)',
         'header-dark-blue': '#147594',
-        'c-gray-500': '#697488',
+        'c-gray-500': 'var(--grayscale-500)',
+        'c-gray-700': '#191919',
         'c-black-600': '#525252',
         'c-black-500': '#6F6F6F',
         'c-black-300': '#A8A8A8',
