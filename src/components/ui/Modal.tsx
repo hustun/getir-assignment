@@ -9,7 +9,7 @@ type ModalProps = {
 function Modal({ children, closeModal, className }: ModalProps) {
   return (
     <div
-      className={`fixed left-0 top-0 w-screen h-screen p-4 bg-slate-50 overflow-scroll z-10 ${
+      className={`fixed left-0 top-0 w-screen h-screen p-4 bg-slate-50 overflow-scroll z-10 pb-24 ${
         className !== undefined ? className : ''
       }`}
     >
