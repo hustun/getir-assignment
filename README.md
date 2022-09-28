@@ -1,6 +1,6 @@
 # Frontend Assignment
 
-[Check it out here](https://demo.hasanustun.com/)
+[Check out the live version](https://demo.hasanustun.com/)
 
 This is a simple product listing application. It consists of:
 
@@ -31,9 +31,7 @@ npm install
 npm start
 ```
 
-## Tools & Technologies
-
-### File Structure
+## File Structure
 
     
     ├── ...
