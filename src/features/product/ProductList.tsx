@@ -31,7 +31,7 @@ function ProductList({ currentItems }: ProductListProps) {
   const range = Array.from(Array(16).keys());
 
   return (
-    <div className="bg-white grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-5 p-5 shadow-product-list">
+    <div className="bg-white grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-5 p-5 shadow-product-list">
       {isLoading && range.map((el, i) => <ProductCardPlaceholder key={i} />)}
       {currentItems.slice().map((product) => {
         return (
