@@ -1,8 +1,8 @@
 import Product from '../../types/Product';
 import ProductCard from './ProductCard';
-import { useAppDispatch } from '../../app/hooks';
-import { initialize, setSortingType } from './productSlice';
-import { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { initialize, setSortingType, setIsLoading } from './productSlice';
+import { useEffect } from 'react';
 import ProductCardPlaceholder from './ProductCardPlaceholder';
 import SortingType from '../../common/SortingType';
 import http from '../../common/http';
@@ -12,8 +12,8 @@ type ProductListProps = {
 };
 
 function ProductList({ currentItems }: ProductListProps) {
+  const isLoading = useAppSelector((state) => state.product.isLoading);
   const dispatch = useAppDispatch();
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     http
@@ -21,7 +21,7 @@ function ProductList({ currentItems }: ProductListProps) {
       .then((res) => {
         dispatch(initialize(res.data));
         dispatch(setSortingType(SortingType.P_ASC));
-        setIsLoading(false);
+        dispatch(setIsLoading(false));
       })
       .catch((err) => {
         console.log(err);

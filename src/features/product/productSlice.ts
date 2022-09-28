@@ -10,6 +10,7 @@ export interface ProductState {
   tagFilters: Array<string>;
   sortingType: SortingType;
   typeFilter: string;
+  isLoading: boolean;
 }
 
 const initialState: ProductState = {
@@ -19,6 +20,7 @@ const initialState: ProductState = {
   tagFilters: [],
   sortingType: SortingType.P_ASC,
   typeFilter: '',
+  isLoading: true,
 };
 
 export const productSlice = createSlice({
@@ -106,6 +108,9 @@ export const productSlice = createSlice({
       productSlice.caseReducers.filter(state);
       productSlice.caseReducers.sort(state);
     },
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
+    },
   },
 });
 
@@ -119,6 +124,7 @@ export const {
   removeTagFilter,
   setSortingType,
   setTypeFilter,
+  setIsLoading,
 } = productSlice.actions;
 
 export default productSlice.reducer;

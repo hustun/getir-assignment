@@ -42,6 +42,7 @@ describe('card reducer', () => {
     tagFilters: [],
     sortingType: SortingType.P_ASC,
     typeFilter: '',
+    isLoading: true,
   };
 
   const initialStateFull: ProductState = {
@@ -51,6 +52,7 @@ describe('card reducer', () => {
     tagFilters: [],
     sortingType: SortingType.P_ASC,
     typeFilter: '',
+    isLoading: true,
   };
 
   it('should handle initial state', () => {
