@@ -39,7 +39,7 @@ function Header() {
           <button className="mr-4" onClick={toggleFilterModal}>
             <FilterIcon />
           </button>
-          <div className="">
+          <div className="flex">
             <ProductTypeFilter />
           </div>
         </div>
