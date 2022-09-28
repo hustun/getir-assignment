@@ -23,10 +23,10 @@ function TypeFilterItem({ name }: TypeFilterItemProps) {
 
   return (
     <button
-      className={`py-[6px] px-4 mr-4 rounded-sm  text-primary font-semibold    cursor-pointer transition-colors ${
+      className={`py-[6px] px-4 mr-4 rounded-sm text-primary font-semibold cursor-pointer transition-colors ${
         selected()
           ? 'bg-primary text-[#F2F0FD]'
-          : 'bg-[#F2F0FD] hover:bg-primary hover:text-[#F2F0FD] hover:opacity-75'
+          : 'bg-[#F2F0FD] lg:hover:bg-primary lg:hover:text-[#F2F0FD] lg:hover:opacity-75'
       }`}
       onClick={handleFilter}
     >
