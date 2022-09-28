@@ -41,14 +41,14 @@ function Pagination({ itemsPerPage }: PaginationProps) {
         nextLabel="Next >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={1}
-        marginPagesDisplayed={4}
+        marginPagesDisplayed={3}
         pageCount={pageCount}
         previousLabel="< Prev"
         pageClassName="page-item"
         pageLinkClassName="page-link"
-        previousClassName="page-item"
+        previousClassName="page-item prev"
         previousLinkClassName="page-link"
-        nextClassName="page-item"
+        nextClassName="page-item next"
         nextLinkClassName="page-link"
         breakClassName="page-item"
         breakLinkClassName="page-link"

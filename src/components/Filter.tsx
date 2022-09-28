@@ -50,9 +50,9 @@ function Filter({ name }: FilterProps) {
   return (
     <div className="mb-6">
       <h2 className="font-semibold text-c-gray-500 mb-3">{name}</h2>
-      <div className="w-[286px] bg-white text-c-black-600 text-sm py-6 px-6 rounded-sm">
+      <div className="w-[286px] bg-white text-c-black-600 text-sm p-6 rounded-sm shadow-filter-container">
         <input
-          className="border px-4 py-2 w-full mb-4"
+          className="border-2 px-4 py-2 mb-4 w-full"
           type="text"
           name=""
           id=""

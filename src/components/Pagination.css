@@ -3,6 +3,7 @@
   justify-content: center;
   font-weight: 600;
   font-size: 0.875rem;
+  line-height: 16px;
   margin-top: 2rem;
   user-select: none;
 }
@@ -15,6 +16,14 @@
   background-color: var(--theme-color);
   color: #fff;
   opacity: 0.7;
+}
+
+.pagination .page-item.prev {
+  margin-right: 3.5rem;
+}
+
+.pagination .page-item.next {
+  margin-left: 3.5rem;
 }
 
 .pagination .active {
@@ -35,5 +44,15 @@
 
   .pagination .page-item {
     padding: 0.5rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .pagination .page-item.prev {
+    margin-right: 1.5rem;
+  }
+
+  .pagination .page-item.next {
+    margin-left: 1.5rem;
   }
 }

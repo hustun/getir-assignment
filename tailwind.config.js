@@ -13,6 +13,8 @@ module.exports = {
       },
       boxShadow: {
         'filter-item': '0px 1px 7px rgba(93, 56, 192, 0.4)',
+        'filter-container': '0px 6px 24px rgba(93, 62, 188, 0.04)',
+        'product-list': '0px 4px 24px rgba(93, 62, 188, 0.04)',
       },
       fontFamily: {
         'turkish-lira': ['Helvetica'],

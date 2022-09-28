@@ -11,7 +11,7 @@ function Sorting() {
   return (
     <div className="mb-6">
       <h2 className="font-semibold text-c-gray-500 mb-3">Sorting</h2>
-      <div className="w-[286px] bg-white text-c-black-600 text-sm rounded-sm p-6">
+      <div className="w-[286px] bg-white text-c-black-600 text-sm rounded-sm p-6 shadow-filter-container">
         {sortingCategories.map((el: SortingItemProps, i: number) => {
           return <SortingItem key={i} label={el.label} type={el.type} />;
         })}

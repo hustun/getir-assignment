@@ -5,10 +5,10 @@ import ProductTypeFilter from './ProductTypeFilter';
 import Sorting from './Sorting';
 
 function Products() {
-  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   const handleFilterToggle = () => {
-    setFiltersOpen((prevState) => !prevState);
+    setShowMobileFilters((prevState) => !prevState);
   };
 
   return (
@@ -23,7 +23,7 @@ function Products() {
       >
         Filter
       </button>
-      {filtersOpen && (
+      {showMobileFilters && (
         <div className="flex flex-wrap lg:hidden justify-between">
           <Sorting />
           <Filter name="Brands" />

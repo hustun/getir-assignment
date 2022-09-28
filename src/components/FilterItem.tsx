@@ -46,14 +46,26 @@ function FilterItem({ name, freq, type }: FilterItemProps) {
     }
   };
   return (
-    <div className="flex mb-5">
-      <input
-        className="rounded-sm w-5 h-5 mr-3 shadow-filter-item border-none cursor-pointer"
-        type="checkbox"
-        checked={checked()}
-        onChange={handleChecked}
-      ></input>
-      <span>
+    <div className="flex mb-[18px]">
+      <div className="relative mr-3 w-[22px] h-[22px]">
+        <input
+          className={`rounded-sm w-full h-full shadow-filter-item border-none cursor-pointer appearance-none ${
+            checked() ? 'bg-primary' : ''
+          }`}
+          type="checkbox"
+          checked={checked()}
+          onChange={handleChecked}
+        ></input>
+        {checked() && (
+          <img
+            className="absolute left-0 top-0 m-auto inset-0 w-[13px] h-[9px]"
+            src="./checkmark-white.svg"
+            alt=""
+          />
+        )}
+      </div>
+
+      <span className="max-w-[140px]">
         {name} <span className="text-c-black-300 ml-1">({freq})</span>
       </span>
     </div>
