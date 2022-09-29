@@ -26,6 +26,13 @@ function Pagination({ itemsPerPage }: PaginationProps) {
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(filteredProducts.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(filteredProducts.length / itemsPerPage));
+
+    if (
+      Math.ceil(itemOffset / itemsPerPage) >
+      filteredProducts.length / itemsPerPage
+    ) {
+      setItemOffset(0);
+    }
   }, [filteredProducts, itemOffset, itemsPerPage]);
 
   // Invoke when user click to request another page.
@@ -64,6 +71,7 @@ function Pagination({ itemsPerPage }: PaginationProps) {
         breakLinkClassName="page-link"
         containerClassName="pagination"
         activeClassName="active"
+        forcePage={Math.floor(itemOffset / itemsPerPage)}
         // renderOnZeroPageCount={null}
       />
     </>
