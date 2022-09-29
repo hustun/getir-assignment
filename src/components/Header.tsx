@@ -6,6 +6,7 @@ import ProductTypeFilter from '../features/product/filtering/ProductTypeFilter';
 import Sorting from '../features/product/sorting/Sorting';
 import CartIcon from './icons/CartIcon';
 import FilterIcon from './icons/FilterIcon';
+import LockIcon from './icons/LockIcon';
 import Modal from './ui/Modal';
 
 function Header() {
@@ -30,10 +31,14 @@ function Header() {
         width={142}
         height={41}
       />
-      <div className="hidden lg:flex absolute right-0 mr-4 sm:mr-12 lg:mr-32 px-4 sm:px-6 p-4 bg-header-dark-blue text-white h-full items-center font-semibold">
-        <span className="font-turkish-lira mr-1">₺</span>
-        <span>{totalPrice.toFixed(2)}</span>
+      <div className="absolute w-full def:max-w-[1229px] h-full">
+        <div className="hidden lg:flex absolute right-0 px-4 sm:px-6 p-4 mr-8 xl:mr-16 def:mr-0 bg-header-dark-blue text-white h-full items-center font-semibold">
+          <LockIcon className="mr-2" />
+          <span className="font-turkish-lira mr-1">₺</span>
+          <span>{totalPrice.toFixed(2)}</span>
+        </div>
       </div>
+
       <div className="flex lg:hidden absolute top-0 left-0 mt-[77px] bg-white w-full py-2 px-4 text-primary justify-between">
         <div className="flex justify-center items-center">
           <button className="mr-4" onClick={toggleFilterModal}>

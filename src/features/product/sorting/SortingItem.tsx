@@ -5,9 +5,10 @@ import { setSortingType } from '../productSlice';
 export type SortingItemProps = {
   label: string;
   type: SortingType;
+  className?: string;
 };
 
-function SortingItem({ label, type }: SortingItemProps) {
+function SortingItem({ label, type, className }: SortingItemProps) {
   const sortingType = useAppSelector((state) => state.product.sortingType);
   const dispatch = useAppDispatch();
 
@@ -16,9 +17,9 @@ function SortingItem({ label, type }: SortingItemProps) {
   };
 
   return (
-    <div className="flex mb-5">
+    <div className={`flex ${className !== undefined ? className : ''}`}>
       <div
-        className={`flex justify-center items-center rounded-full border-2 w-5 h-5 mr-3 select-none cursor-pointer ${
+        className={`flex justify-center items-center rounded-full border-2 w-[22px] h-[22px] mr-3 select-none cursor-pointer ${
           type === sortingType
             ? 'border-primary'
             : 'border-[#DFDEE2] hover:border-[#c9c8cc]'
