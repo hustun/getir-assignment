@@ -57,8 +57,8 @@ function Header() {
         <Modal className="block lg:hidden" closeModal={toggleFilterModal}>
           <div className="flex flex-col lg:hidden justify-between">
             <Sorting />
-            <Filter name="Brands" />
-            <Filter name="Tags" />
+            <Filter name="Brands" searchPlaceholder="Search brand" />
+            <Filter name="Tags" searchPlaceholder="Search tag" />
           </div>
         </Modal>
       )}

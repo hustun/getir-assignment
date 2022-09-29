@@ -61,6 +61,16 @@ export const productSlice = createSlice({
       productSlice.caseReducers.filter(state);
       productSlice.caseReducers.sort(state);
     },
+    clearTagFilters: (state) => {
+      state.tagFilters = [];
+      productSlice.caseReducers.filter(state);
+      productSlice.caseReducers.sort(state);
+    },
+    clearBrandFilters: (state) => {
+      state.brandFilters = [];
+      productSlice.caseReducers.filter(state);
+      productSlice.caseReducers.sort(state);
+    },
     // Reapplies the filtering function after every change to the filters
     filter: (state) => {
       state.filteredProducts = state.products
@@ -125,6 +135,8 @@ export const {
   setSortingType,
   setTypeFilter,
   setIsLoading,
+  clearTagFilters,
+  clearBrandFilters,
 } = productSlice.actions;
 
 export default productSlice.reducer;

@@ -4,6 +4,8 @@ import {
   removeBrandFilter,
   addTagFilter,
   removeTagFilter,
+  clearBrandFilters,
+  clearTagFilters,
 } from '../productSlice';
 
 type FilterItemProps = {
@@ -19,25 +21,37 @@ function FilterItem({ name, freq, type }: FilterItemProps) {
 
   const checked = () => {
     return type === 'Brands'
-      ? brandFilters.includes(name)
+      ? name === 'All'
+        ? brandFilters.length === 0
+        : brandFilters.includes(name)
+      : name === 'All'
+      ? tagFilters.length === 0
       : tagFilters.includes(name);
   };
 
+  //handles click action based on type
   const handleChecked = () => {
     switch (type) {
       case 'Brands':
-        if (checked()) {
-          dispatch(removeBrandFilter(name));
+        if (name === 'All') {
+          dispatch(clearBrandFilters());
         } else {
-          dispatch(addBrandFilter(name));
+          if (checked()) {
+            dispatch(removeBrandFilter(name));
+          } else {
+            dispatch(addBrandFilter(name));
+          }
         }
         break;
-
       case 'Tags':
-        if (checked()) {
-          dispatch(removeTagFilter(name));
+        if (name === 'All') {
+          dispatch(clearTagFilters());
         } else {
-          dispatch(addTagFilter(name));
+          if (checked()) {
+            dispatch(removeTagFilter(name));
+          } else {
+            dispatch(addTagFilter(name));
+          }
         }
         break;
 

@@ -11,8 +11,8 @@ function App() {
       <div className="flex flex-col lg:flex-row px-2 md:px-8 xl:px-16 def:px-[103px] mt-[145px] lg:mt-[117px] max-w-[1440px] mx-auto justify-center">
         <div className="hidden lg:block w-full lg:w-1/4">
           <Sorting />
-          <Filter name="Brands" />
-          <Filter name="Tags" />
+          <Filter name="Brands" searchPlaceholder="Search brand" />
+          <Filter name="Tags" searchPlaceholder="Search tag" />
         </div>
         <div className="w-full lg:w-2/4 max-w-none def:max-w-[608px] mr-4">
           <Products />

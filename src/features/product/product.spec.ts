@@ -8,6 +8,7 @@ import productReducer, {
   setSortingType,
   setTypeFilter,
   ProductState,
+  clearBrandFilters,
 } from './productSlice';
 
 describe('card reducer', () => {
@@ -63,6 +64,7 @@ describe('card reducer', () => {
       tagFilters: [],
       sortingType: SortingType.P_ASC,
       typeFilter: '',
+      isLoading: true,
     });
   });
 
@@ -141,27 +143,66 @@ describe('card reducer', () => {
     expect(actual.filteredProducts.length).toEqual(expectedProductCount);
   });
 
-  it('should handle adding and removing the filters', () => {
-    const startingProductCount = initialStateFull.products.length;
-    const expectedProductCount = 1;
+  it('should handle clearing brand filters', () => {
+    // Arrange
+    const expectedFilteredCount = 1;
+    const expectedProductCount = 2;
 
+    //Act
     let actual = productReducer(
       initialStateFull,
       addBrandFilter('OHara-Group')
     );
 
-    expect(actual.filteredProducts.length).toEqual(expectedProductCount);
+    actual = productReducer(initialStateFull, addBrandFilter('OHara-Group'));
 
-    actual = productReducer(initialStateFull, removeBrandFilter('OHara-Group'));
+    expect(actual.filteredProducts.length).toEqual(expectedFilteredCount);
 
-    expect(actual.filteredProducts.length).toEqual(startingProductCount);
+    const actual2 = productReducer(actual, clearBrandFilters());
 
-    actual = productReducer(initialStateFull, addTagFilter('Ocean'));
+    //Assert
+    expect(actual2.filteredProducts.length).toEqual(expectedProductCount);
+  });
 
-    expect(actual.filteredProducts.length).toEqual(expectedProductCount);
+  it('should handle clearing tag filters', () => {
+    // Arrange
+    const expectedFilteredCount = 1;
+    const expectedProductCount = 2;
 
-    actual = productReducer(initialStateFull, removeTagFilter('Ocean'));
+    //Act
+    let actual = productReducer(initialStateFull, addTagFilter('Ocean'));
 
-    expect(actual.filteredProducts.length).toEqual(startingProductCount);
+    actual = productReducer(initialStateFull, addBrandFilter('OHara-Group'));
+
+    expect(actual.filteredProducts.length).toEqual(expectedFilteredCount);
+
+    const actual2 = productReducer(actual, clearBrandFilters());
+
+    //Assert
+    expect(actual2.filteredProducts.length).toEqual(expectedProductCount);
+  });
+
+  it('should handle adding and removing the filters', () => {
+    const startingProductCount = initialStateFull.products.length;
+    const expectedProductCount = 1;
+
+    const actual1 = productReducer(
+      initialStateFull,
+      addBrandFilter('OHara-Group')
+    );
+
+    expect(actual1.filteredProducts.length).toEqual(expectedProductCount);
+
+    const actual2 = productReducer(actual1, removeBrandFilter('OHara-Group'));
+
+    expect(actual2.filteredProducts.length).toEqual(startingProductCount);
+
+    const actual3 = productReducer(actual2, addTagFilter('Ocean'));
+
+    expect(actual3.filteredProducts.length).toEqual(expectedProductCount);
+
+    const actual4 = productReducer(actual3, removeTagFilter('Ocean'));
+
+    expect(actual4.filteredProducts.length).toEqual(startingProductCount);
   });
 });
