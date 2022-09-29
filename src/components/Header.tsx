@@ -23,7 +23,7 @@ function Header() {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full flex justify-center items-center px-4 pb-[19px] pt-[17px] bg-primary">
+    <div className="fixed top-0 left-0 w-full flex justify-center items-center px-4 pb-[19px] pt-[17px] bg-primary z-10">
       <img
         className=""
         src="/Logo.svg"
