@@ -10,13 +10,16 @@
 }
 
 .pagination .page-item {
-  padding: 0.75rem;
+  padding: 0.5rem;
+}
+
+.pagination .page-item .page-link {
+  display: block;
+  padding: 0.25rem;
 }
 
 .pagination .page-item:not(.active):not(.disabled):hover {
-  background-color: var(--theme-color);
-  color: #fff;
-  opacity: 0.7;
+  color: var(--theme-color);
 }
 
 .pagination .page-item.prev {
@@ -43,7 +46,7 @@
   }
 
   .pagination .page-item {
-    padding: 0.5rem;
+    padding: 0.25rem;
   }
 }
 
@@ -77,6 +80,6 @@
   }
 
   .pagination .page-item {
-    padding: 0.45rem;
+    padding: 0.2rem;
   }
 }
