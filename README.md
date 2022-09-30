@@ -51,4 +51,4 @@ npm start
 ## Deployment
 
 - [Frontend Application](https://demo.hasanustun.com/) is deployed using [Vercel](https://vercel.com/)
-- [Mock Backend](https://hustun-mock-server.herokuapp.com/) is deployed using [Heroku](https://www.heroku.com/)
+- [Mock Backend](https://mock-backend-production.up.railway.app/) is deployed using [Railway](https://railway.app/)

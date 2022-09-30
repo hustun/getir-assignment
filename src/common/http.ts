@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: 'https://hustun-mock-server.herokuapp.com',
+  baseURL: 'https://mock-backend-production.up.railway.app/',
   headers: {
     'Content-Type': 'application/json',
   },
