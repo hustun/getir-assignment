@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: 'https://mock-backend-production.up.railway.app/',
+  baseURL: 'https://jellyfish-app-k9ty5.ondigitalocean.app/',
   headers: {
     'Content-Type': 'application/json',
   },
